@@ -13,28 +13,18 @@ namespace ContactController1.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
-        public Contact[] Get()
-        {
-
-            return new Contact[]
-            {
-        new Contact
-        {
-            Id = 1,
-            Name = "Glenn Block"
-        },
-        new Contact
-        {
-            Id = 2,
-            Name = "Dan Roth"
-        }
-            };
-        }
         private ContactRepository contactRepository;
 
-        public ContactController()
+       public ContactController()
         {
             this.contactRepository = new ContactRepository();
         }
+        public Contact[] Get()
+        {
+            return contactRepository.GetAllContacts();
+        }
+
+     
+        
     }
 }

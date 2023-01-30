@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "NYYW645bg4dkI816q2QkkeZGO5TY8L1iMxRZALzF5jysIAR8w9wnW58J3IU5k5HgkePU4t2gKQUgCz4tSb6f1g==",
+  "dgSpecHash": "H/dmNMsaT2g9l2Ooxb6eIZtqOvooefnLSsMdACcLPjEhvuDD2f/JLKMwBWdrTlEbgB6R4X18lptOLDt4LQ0Zsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\rokob\\source\\repos\\ruaplv2\\Begin1\\ContactController1\\ContactController1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rokob\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\rokob\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

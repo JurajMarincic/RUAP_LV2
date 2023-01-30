@@ -2,28 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ContactController1.Services;
 using ContactController1.Models;
+using Microsoft.AspNetCore.Http;
+using System.Web;
+using Newtonsoft.Json;
 
 namespace ContactController1.Services
 {
     public class ContactRepository
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private const string CacheKey = "ContactStore";
+
+        public ContactRepository(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
         public Contact[] GetAllContacts()
         {
-            return new Contact[]
+            var ctx = _httpContextAccessor.HttpContext;
+            if (ctx != null)
             {
-            new Contact
-            {
-                Id = 1,
-                Name = "Glenn Block"
-            },
-            new Contact
-            {
-                Id = 2,
-                Name = "Dan Roth"
+                var contactsJson = ctx.Session.GetString(CacheKey);
+                return JsonConvert.DeserializeObject<Contact[]>(contactsJson);
             }
-            };
+            return new Contact[] { new Contact
+            {
+                Id = 0,
+                Name = "Placeholder"
+            }};
         }
     }
+
 }
